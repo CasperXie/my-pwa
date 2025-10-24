@@ -7,5 +7,5 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // 可加快取策略，這裡先用網路直取
+  // 目前不快取，直接使用網路資源
 });
