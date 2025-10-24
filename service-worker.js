@@ -1,9 +1,9 @@
 const CACHE_NAME = 'my-app-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/style.css'
+  './',
+  './index.html',
+  './manifest.json',
+  './style.css'
   // 可以把你的 JS 或其他資源也加進來
 ];
 
