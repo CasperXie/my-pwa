@@ -1,11 +1,29 @@
+const CACHE_NAME = 'my-pwa-cache-v1';
+const urlsToCache = [
+  './',
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
+];
+
+// 安裝 Service Worker
 self.addEventListener('install', event => {
-  console.log('Service Worker installing...');
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
+  );
 });
 
+// 啟用 Service Worker
 self.addEventListener('activate', event => {
-  console.log('Service Worker activated!');
+  event.waitUntil(self.clients.claim());
 });
 
+// 攔截 fetch 請求
 self.addEventListener('fetch', event => {
-  // 目前不快取，直接使用網路資源
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+  );
 });
