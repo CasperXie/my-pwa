@@ -2,6 +2,10 @@ self.addEventListener('install', event => {
   console.log('Service Worker installing...');
 });
 
+self.addEventListener('activate', event => {
+  console.log('Service Worker activated!');
+});
+
 self.addEventListener('fetch', event => {
-  event.respondWith(fetch(event.request));
+  // 這裡暫時不快取，直接走網路
 });
