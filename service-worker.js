@@ -1,29 +1,24 @@
-const CACHE_NAME = 'my-pwa-cache-v1';
+const CACHE_NAME = 'my-app-cache-v1';
 const urlsToCache = [
-  './',
-  './index.html',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png'
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/style.css'
+  // 可以把你的 JS 或其他資源也加進來
 ];
 
-// 安裝 Service Worker
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(urlsToCache);
+    })
   );
 });
 
-// 啟用 Service Worker
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
-});
-
-// 攔截 fetch 請求
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
   );
 });
