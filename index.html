@@ -8,13 +8,19 @@
   <!-- PWA manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1976d2">
-
-  <script>
-    // 自動跳轉到 GAS Web App
-    window.location.href = "https://script.google.com/macros/s/AKfycbzRCt7GZpVsXq22aHLgo226uupyBc1z93FhL5BmJIk54wXm3QqjuTmtKytAhU8TKScZ/exec";
-  </script>
 </head>
 <body>
-  <p>如果沒有自動跳轉，請 <a href="https://script.google.com/macros/s/AKfycbzRCt7GZpVsXq22aHLgo226uupyBc1z93FhL5BmJIk54wXm3QqjuTmtKytAhU8TKScZ/exec">點此打開 Web App</a></p>
+  <!-- 這裡放你原本 Web App HTML 內容 -->
+  <!-- 例如表單、按鈕、JS 程式碼等 -->
+  
+  <script src="your-script.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('SW failed', err));
+    }
+  </script>
 </body>
 </html>
