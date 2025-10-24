@@ -8,19 +8,13 @@
   <!-- PWA manifest -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1976d2">
-</head>
-<body style="margin:0; padding:0; height:100vh; overflow:hidden;">
-  <!-- 用 iframe 嵌入你的 GAS Web App -->
-  <iframe src="https://script.google.com/macros/s/AKfycbzRCt7GZpVsXq22aHLgo226uupyBc1z93FhL5BmJIk54wXm3QqjuTmtKytAhU8TKScZ/exec"
-          style="border:none; width:100%; height:100%;">
-  </iframe>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-      .then(() => console.log('Service Worker registered'))
-      .catch(err => console.log('SW failed', err));
-    }
+    // 自動跳轉到 GAS Web App
+    window.location.href = "https://script.google.com/macros/s/AKfycbzRCt7GZpVsXq22aHLgo226uupyBc1z93FhL5BmJIk54wXm3QqjuTmtKytAhU8TKScZ/exec";
   </script>
+</head>
+<body>
+  <p>如果沒有自動跳轉，請 <a href="https://script.google.com/macros/s/AKfycbzRCt7GZpVsXq22aHLgo226uupyBc1z93FhL5BmJIk54wXm3QqjuTmtKytAhU8TKScZ/exec">點此打開 Web App</a></p>
 </body>
 </html>
