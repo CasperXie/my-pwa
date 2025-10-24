@@ -7,5 +7,5 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // 暫時不快取，直接走網路
+  // 不快取，直接走網路
 });
