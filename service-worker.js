@@ -2,8 +2,11 @@ const CACHE_NAME = 'my-app-cache-v1';
 const urlsToCache = [
   './',
   './index.html',
-  './manifest.json'
-  // 若有其他資源可加進來
+  './manifest.json',
+  './service-worker.js',
+  './style.css',
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
 self.addEventListener('install', event => {
